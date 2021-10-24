@@ -1,9 +1,9 @@
 import 'dart:convert';
 import 'dart:io';
 
+import 'package:daniel_cardona_3_2021_2_p1/screens/animes_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:http/http.dart' as http;
-import 'package:daniel_cardona_3_2021_2_p1/Models/Anime.dart';
 
 class PrincipalScreen extends StatefulWidget {
   const PrincipalScreen({ Key? key }) : super(key: key);
@@ -66,5 +66,12 @@ class _PrincipalScreenState extends State<PrincipalScreen> {
     var response = await http.get(url);
     Map data = jsonDecode(response.body);
     print(data);
+
+    Navigator.pushReplacement(
+      context, 
+      MaterialPageRoute(
+        builder: (context) => AnimesScreen()
+        )
+      );
   }
 }
