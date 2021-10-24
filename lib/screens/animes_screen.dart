@@ -1,3 +1,4 @@
+import 'package:daniel_cardona_3_2021_2_p1/screens/principa_screen.dart';
 import 'package:flutter/material.dart';
 
 class AnimesScreen extends StatefulWidget {
@@ -22,14 +23,23 @@ class _AnimesScreenState extends State<AnimesScreen> {
   Widget _getBody() {
     return Container(
       margin: EdgeInsets.all(30),
-      child: Center(
-        child: Text(
-          'Bienvenido',
-          style: TextStyle(
-            fontSize: 20,
-            fontWeight: FontWeight.bold 
-          ),
-        ),
+      child: Column(
+        mainAxisAlignment: MainAxisAlignment.center,
+        children: [
+          /*FadeInImage(
+            placeholder: AssetImage('assets/Animes.jpg'),
+            image: NetworkImage(widget)
+          ),*/
+          Center(
+            child: Text(
+            'Listado de Animes',
+            style: TextStyle(
+              fontSize: 20,
+              fontWeight: FontWeight.bold 
+              ),
+            ),
+          )
+        ],
       ),
     );
   }
@@ -48,6 +58,18 @@ class _AnimesScreenState extends State<AnimesScreen> {
             leading: Icon(Icons.search),
             title: Text('Buscar'),
             onTap: () {},
+          ),
+          ListTile(
+            leading: Icon(Icons.arrow_back_ios_new),
+            title: Text('Volver'),
+            onTap: () {
+              Navigator.pushReplacement(
+                context, 
+                MaterialPageRoute(
+                  builder: (context) => PrincipalScreen()
+                )
+              );
+            },
           )
         ],
       ),
