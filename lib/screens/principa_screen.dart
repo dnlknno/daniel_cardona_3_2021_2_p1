@@ -1,4 +1,9 @@
+import 'dart:convert';
+import 'dart:io';
+
 import 'package:flutter/material.dart';
+import 'package:http/http.dart' as http;
+import 'package:daniel_cardona_3_2021_2_p1/Models/Anime.dart';
 
 class PrincipalScreen extends StatefulWidget {
   const PrincipalScreen({ Key? key }) : super(key: key);
@@ -8,6 +13,7 @@ class PrincipalScreen extends StatefulWidget {
 }
 
 class _PrincipalScreenState extends State<PrincipalScreen> {
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -47,11 +53,18 @@ class _PrincipalScreenState extends State<PrincipalScreen> {
                   }
                 ),
               ),
-              onPressed: () {},
+              onPressed: () => _ViewAnimes(),
             ),
           ),
         ],
       ),
     );
+  }
+
+  void _ViewAnimes() async {
+    var url = Uri.parse('https://anime-facts-rest-api.herokuapp.com/api/v1');
+    var response = await http.get(url);
+    Map data = jsonDecode(response.body);
+    print(data);
   }
 }
