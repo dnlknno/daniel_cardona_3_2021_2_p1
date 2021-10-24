@@ -22,6 +22,13 @@ class _PrincipalScreenState extends State<PrincipalScreen> {
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: <Widget>[
+            Center(child: Text('ANIMES',
+            style: TextStyle(
+              fontSize: 50,
+              fontWeight: FontWeight.bold,
+              color: Colors.blueAccent
+              ),)),
+            SizedBox(height: 50,),
             _showLogo(),
             SizedBox(height: 20,),
             _showButtonAnimes(),
